@@ -12,7 +12,7 @@ df_list = [pd.read_csv(os.path.join(data_dir, f)) for f in files]
 df = pd.concat(df_list, ignore_index=True)
 
 # Clean price column (remove $ and convert to float)
-df['price'] = df['price'].replace('[\$,]', '', regex=True).astype(float)
+df['price'] = df['price'].replace(r'[\$,]', '', regex=True).astype(float)
 
 # Add a sales column (price * quantity)
 df['sales'] = df['price'] * df['quantity']
